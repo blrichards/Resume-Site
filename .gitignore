@@ -1,7 +1,6 @@
+# Created by https://www.gitignore.io/api/macos,linux,django,virtualenv,python,osx,vim
 
-# Created by https://www.gitignore.io/api/osx,django,python
-
-### OSX ###
+### macOS ###
 *.DS_Store
 .AppleDouble
 .LSOverride
@@ -26,6 +25,22 @@ Temporary Items
 .apdisk
 
 
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+
 ### Django ###
 *.log
 *.pot
@@ -34,6 +49,21 @@ __pycache__/
 local_settings.py
 db.sqlite3
 media
+
+
+### VirtualEnv ###
+# Virtualenv
+# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
+.Python
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ll]ib64
+[Ll]ocal
+[Ss]cripts
+pyvenv.cfg
+.venv
+pip-selfcheck.json
 
 
 ### Python ###
@@ -45,7 +75,6 @@ media
 *.so
 
 # Distribution / packaging
-.Python
 env/
 build/
 develop-eggs/
@@ -123,3 +152,22 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+
+### OSX ###
+# Icon must end with two \r
+# Thumbnails
+# Files that might appear in the root of a volume
+# Directories potentially created on remote AFP share
+
+
+### Vim ###
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+# session
+Session.vim
+# temporary
+.netrwhist
+# auto-generated tag files
+tags
