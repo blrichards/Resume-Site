@@ -3,11 +3,12 @@
 }
 
 #profile-pic {
-    height: 250px !important;
-    width: 250px !important;
-    /*margin-bottom: -20px !important;*/
-    /*padding: 10px !important;*/
-    border-radius: 50% !important;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    background-image: url("../images/profile.jpg");
+    background-size: contain;
+    margin: auto;
 }
 
 h1,
@@ -20,9 +21,8 @@ h6 {
 }
 
 #homeHeading {
-    /*margin-top: -10px !important;*/
-    padding-bottom: 15px !important;
-    text-transform: none !important;
+    padding-bottom: 15px;
+    text-transform: none;
 }
 
 .sixteen-nine {

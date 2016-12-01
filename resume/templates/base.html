@@ -62,8 +62,12 @@
                                      {% endif %}">Home</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="{% url 'more' %}">More Info</a>
-                        </li>
+                            <a class="page-scroll"
+                               href="{% if request.get_full_path == '/more/' %}
+                                        #page-top
+                                     {% else %}
+                                        {% url 'more' %}
+                                     {% endif %}">More Info</a>                        </li>
                         {% block navbar %}
                         {% endblock navbar %}
                     </ul>
@@ -77,7 +81,7 @@
             <div class="header-content">
                 <div class="header-content-inner">
                     <h1 id="homeHeading">Ben Richards</h1>
-                    <img src="{% static 'images/profile.jpg' %}" alt="{% static 'images/profile.png' %}" id="profile-pic">
+                    <div id="profile-pic"></div>
                     <hr>
                     <p><em>"let them eat cake" - Marie Antoinette</em></p>
                     <a href="{% if about_me %}#about{% else %}#resume-section{% endif %}" class="btn btn-primary btn-xl page-scroll">Click or Scroll for More</a>
