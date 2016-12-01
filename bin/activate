@@ -40,7 +40,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/ben/VirtualPy3"
+VIRTUAL_ENV="/Users/benton/Documents/Resume-Site"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

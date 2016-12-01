@@ -15,3 +15,8 @@ def index(request):
         'projects': projects,
     }
     return render(request, 'index.html', context)
+
+
+def more(request):
+    print("More Info")
+    return render(request, 'more.html')

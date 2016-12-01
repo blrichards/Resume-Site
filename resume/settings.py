@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '2@f#1z10d&8s84*&$@uk6w%jf1+ll-+s0@=u7^49krs583vxkz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['benrichards.xyz', 'www.benrichards.xyz', 'http://www.benrichards.xyz']
+# ALLOWED_HOSTS = ['benrichards.xyz', 'www.benrichards.xyz', 'http://www.benrichards.xyz']
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'resume.apps.ResumeConfig',    
+    'resume',
 ]
 
 MIDDLEWARE = [
