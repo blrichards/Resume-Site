@@ -178,3 +178,5 @@ tags
 .config/
 .viminfo
 VirtualPy3/
+resume/static
+static
