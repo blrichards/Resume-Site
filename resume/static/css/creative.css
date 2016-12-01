@@ -427,3 +427,7 @@ body {
 .resume-section-title {
     padding-bottom: 15px;
 }
+
+.sr-icons {
+    padding-top: 20px !important;
+}
