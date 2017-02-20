@@ -4,6 +4,7 @@ from django.db import models
 class ResumeSection(models.Model):
     title = models.CharField(max_length=200)
     icon_name = models.CharField(max_length=20, default='book')
+    inline = models.BooleanField(default=False);
 
     def __str__(self):
         return self.title
@@ -11,15 +12,15 @@ class ResumeSection(models.Model):
 
 class ResumeSectionItem(models.Model):
     section = models.ForeignKey(ResumeSection, on_delete=models.CASCADE)
-
+    first = models.BooleanField('first', blank=True, default=False)
+    prefix = models.CharField('prefix', blank=True, null=True, max_length=50)
     start_date = models.DateField('start', blank=True, null=True)
-
     end_date = models.DateField('end', blank=True, null=True)
-
-    description = models.CharField(max_length=200)
+    header = models.CharField(max_length=100)
+    description = models.CharField('description', blank=True, null=True, max_length=500)
 
     def __str__(self):
-        return self.description
+        return self.header
 
 
 class AboutMeSection(models.Model):

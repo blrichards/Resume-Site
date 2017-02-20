@@ -25,7 +25,6 @@
                         {% for section in about_me %}
                             <p class="text-faded">{{ section.body }}</p>
                         {% endfor %}
-                        <!-- <a href="#resume-section" class="page-scroll btn btn-default btn-xl sr-button">Get Started!</a> -->
                     </div>
                 </div>
             </div>
@@ -33,33 +32,53 @@
     {% endif %}
 
     {% if resume_list %}
-        <section id="resume-section">
-            <div class="container">
+        <section id="resume-section" class="small-padding">
+            <!--<div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <h2 class="section-heading">My Resume</h2>
                         <hr class="primary">
                     </div>
                 </div>
-            </div>
+            </div>-->
             <div class="container">
                 <div class="row">
                     {% for section in resume_list %}
-                        <div class="col-lg-4 text-center">
-                            <!-- {# <div class="service-box"> -->
-                                <i class="fa fa-4x fa-{{ section.icon_name }} text-primary sr-icons"></i>
+                        <div class="col-lg-4">
+                                <i class="fa fa-5x fa-{{ section.icon_name }} text-primary sr-icons"></i>
                                 <h3 class="resume-section-title">{{ section }}</h3>
-                                <ul class="list-inline">
-                                    {% for item in section.resumesectionitem_set.all %}
-                                        <li class="text-muted">
-                                            <strong>&bull;&emsp;{{ item.description }}</strong>
-                                            {% if item.start_date and item.end_date %}
-                                                <em>&emsp;{% if section.title == 'Work Experience' %}{{ item.start_date|date:" M" }}{% endif %} {{ item.start_date.year }} - {% if section.title == 'Work Experience' %}{{ item.end_date|date:" M" }}{% endif %} {{ item.end_date.year }}</em>
+                                {% if section.inline %}
+                                    <ul class="list-inline">
+                                        {% for item in section.resumesectionitem_set.all %}
+                                            <li class="text-muted item-header">
+                                                {% if not item.first %}&bull;&emsp;{% endif %}{{ item.header }}
+                                                {% if item.start_date or item.prefix %}
+                                                    <em>&emsp;{% if item.prefix %}{{item.prefix}} {% endif %}{{item.start_date|date:"Y"}}{% if item.end_date %}-{{item.end_date|date:"Y"}}{% endif %}</em>
+                                                {% endif %}
+                                            </li>
+                                            {% if item.description %}
+                                                <li class="item-description">
+                                                    {{ item.description }}
+                                                </li>
                                             {% endif %}
-                                        </li>
-                                        {# <hr class="disappear"/>#}
+                                            {# <hr class="disappear"/>#}
+                                        {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    {% for item in section.resumesectionitem_set.all %}
+                                        <p class="text-muted item-header">
+                                            <strong>{{ item.header }}</strong>
+                                            {% if item.start_date or item.prefix %}
+                                                {% if item.prefix %}{{item.prefix}} {% endif %}{{item.start_date|date:"Y"}}{% if item.end_date %}-{{item.end_date|date:"Y"}}{% endif %}
+                                            {% endif %}
+                                        </p>
+                                        {% if item.description %}
+                                            <p class="item-description">
+                                                {{ item.description }}
+                                            </p>
+                                        {% endif %}
                                     {% endfor %}
-                                </ul>
+                                {% endif %}
                             <!-- </div> -->
                         </div>
                     {% endfor %}
@@ -92,25 +111,6 @@
         </div>
     </section>
 
-    <aside class="bg-dark">
-        <div class="container text-center">
-            <div class="call-to-action">
-                <h2>My favorite websites</h2>
-                <ul class="list-inline">
-                    <li class="text-faded">
-                        <a href="https://www.netflix.com/" class="text-faded">Netflix</a>
-                    </li>
-                    <li class="text-faded">
-                        <a href="https://www.google.com/" class="text-faded">Google</a>
-                    </li>
-                    <li class="text-faded">
-                        <a href="https://github.com/" class="text-faded">Github</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </aside>
-
     <section class="bg-primary" id="contact">
         <div class="container">
             <div class="row">
@@ -122,16 +122,16 @@
                 <div class="col-lg-2 col-lg-offset-3 text-center">
                     <i class="fa fa-facebook fa-3x sr-contact"></i>
                     <p></p>
-                    <p><a href="https://www.facebook.com/blrich" class="text-faded">facebook</a></p>
+                    <p><a href="https://www.facebook.com/blrich" class="text-faded" id="facebook">facebook</a></p>
                 </div>
                 <div class="col-lg-2 text-center">
                     <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:blrichards@me.com" class="text-faded">blrichards@me.com</a></p>
+                    <p><a href="mailto:blrichards@me.com" class="text-faded no-decoration">blrichards@me.com</a></p>
                 </div>
                 <div class="col-lg-2 text-center">
                     <i class="fa fa-linkedin fa-3x sr-contact"></i>
                     <p></p>
-                    <p><a href="https://www.linkedin.com/in/ben-richards-809a9793" class="text-faded">LinkedIn</a></p>
+                    <p><a href="https://www.linkedin.com/in/ben-richards-809a9793" class="text-faded no-decoration">LinkedIn</a></p>
                 </div>
             </div>
         </div>

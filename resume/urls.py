@@ -20,7 +20,5 @@ from resume.views import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    # url(r'^', views.index, name='index'),
     url(r'^$', index, name='index'),
-    url(r'^more/$', more, name='more'),
 ]
