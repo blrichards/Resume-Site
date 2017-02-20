@@ -16,7 +16,7 @@ class ResumeSectionItem(models.Model):
     prefix = models.CharField('prefix', blank=True, null=True, max_length=50)
     start_date = models.DateField('start', blank=True, null=True)
     end_date = models.DateField('end', blank=True, null=True)
-    header = models.CharField(max_length=100)
+    header = models.CharField(max_length=100, default='HEADER')
     description = models.CharField('description', blank=True, null=True, max_length=500)
 
     def __str__(self):

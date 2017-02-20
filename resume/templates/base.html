@@ -61,13 +61,6 @@
                                         {% url 'index' %}
                                      {% endif %}">Home</a>
                         </li>
-                        <li>
-                            <a class="page-scroll"
-                               href="{% if request.get_full_path == '/more/' %}
-                                        #page-top
-                                     {% else %}
-                                        {% url 'more' %}
-                                     {% endif %}">More Info</a>                        </li>
                         {% block navbar %}
                         {% endblock navbar %}
                     </ul>
