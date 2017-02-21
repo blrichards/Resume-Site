@@ -4,7 +4,7 @@ from .models import ResumeSection, AboutMeSection, Project
 
 
 def index(request):
-    resume_list = ResumeSection.objects.order_by()
+    resume_list = ResumeSection.objects.order_by('id')
     about_me = AboutMeSection.objects.order_by()
     projects = Project.objects.order_by()
 

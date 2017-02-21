@@ -51,7 +51,7 @@
                                     <ul class="list-inline">
                                         {% for item in section.resumesectionitem_set.all %}
                                             <li class="text-muted item-header">
-                                                {% if not item.first %}&bull;&emsp;{% endif %}{{ item.header }}
+                                                {% if not item.first %}&bull;&emsp;&emsp;{% endif %}{{ item.header }}
                                                 {% if item.start_date or item.prefix %}
                                                     <em>&emsp;{% if item.prefix %}{{item.prefix}} {% endif %}{{item.start_date|date:"Y"}}{% if item.end_date %}-{{item.end_date|date:"Y"}}{% endif %}</em>
                                                 {% endif %}
